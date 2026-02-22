@@ -134,7 +134,7 @@ aws ec2 describe-instances --profile research --instance-ids \
 
 ```bash
 curl -X PUT "http://169.254.169.254/latest/api/token" \
-  -H "X-aws-ec2-metadata-token-ttl-seconds: 21600"
+  -H "X-aws-ec2-metadata-token-ttl-seconds: 21600" && echo
 ```
 
 ```bash
