@@ -106,7 +106,7 @@ kubectl --insecure-skip-tls-verify --token=$TOKEN auth can-i '*' '*'
 
 ```bash
 k rollout restart deploy ci-pipeline-runner -n prod
-k rollout restart deploy customer-porta
+k rollout restart deploy customer-portal
 k delete pod pwned-pod -n prod --force
 ```
 
