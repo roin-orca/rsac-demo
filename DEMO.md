@@ -231,7 +231,8 @@ kubectl get sa expense-report-sa -n finance -o yaml | grep -A2 annotations
 ```
 
 ```bash
-aws --profile research iam get-role --role-name rsac-demo-finance-irsa --query 'Role.AssumeRolePolicyDocument' --output json
+aws --profile research iam get-role --role-name rsac-demo-finance-irsa \
+   --query 'Role.AssumeRolePolicyDocument' --output json
 ```
 
 ```bash
