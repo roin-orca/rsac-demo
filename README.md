@@ -69,8 +69,7 @@ kubectl --insecure-skip-tls-verify --token=$TOKEN auth can-i create pods --all-n
 
 ```bash
 kubectl --insecure-skip-tls-verify --token=$TOKEN get pods -A -ojson \
-  | jq -r '.items[] \
-  | "\(.metadata.namespace)\t\(.metadata.name)\t\(.spec.serviceAccountName)"'
+  | jq -r '.items[] | "\(.metadata.namespace)\t\(.metadata.name)\t\(.spec.serviceAccountName)"'
 ```
 
 ```bash
