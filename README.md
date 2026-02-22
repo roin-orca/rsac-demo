@@ -128,7 +128,8 @@ INSTANCE_ID=$(aws ec2 describe-instances --profile research \
   --filters "Name=tag:eks:cluster-name,Values=rsac-demo" \
   --query 'Reservations[0].Instances[0].InstanceId' --output text)
 
-aws ec2 describe-instances --profile research --instance-ids $INSTANCE_ID --query 'Reservations[0].Instances[0].MetadataOptions' --output table
+aws ec2 describe-instances --profile research --instance-ids \
+  $INSTANCE_ID --query 'Reservations[0].Instances[0].MetadataOptions' --output table
 ```
 
 ```bash
