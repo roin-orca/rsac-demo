@@ -173,7 +173,7 @@ TOKEN=$(aws eks get-token --cluster-name rsac-demo --output json \
 ```
 
 ```bash
-NODE_HOSTNAME=ip-172-31-73-24.ec2.internal
+NODE_HOSTNAME=
 kubectl --insecure-skip-tls-verify --token=$TOKEN get pods -A -ojson \
     --field-selector spec.nodeName=$NODE_HOSTNAME
 ```
