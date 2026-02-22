@@ -168,8 +168,8 @@ curl -s -H "X-aws-ec2-metadata-token: $IMDS_TOKEN" \
 ```
 
 ```bash
-TOKEN=$(aws eks get-token --cluster-name rsac-demo \
-  --output json | python3 -c "import sys,json; print(json.load(sys.stdin)['status']['token'])")
+TOKEN=$(aws eks get-token --cluster-name rsac-demo --output json \
+  | python3 -c "import sys,json; print(json.load(sys.stdin)['status']['token'])")
 ```
 
 ```bash
