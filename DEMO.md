@@ -124,9 +124,7 @@ kubectl exec -it deploy/debug-dashboard -n dev -- /bin/bash
 ## Part 2: Move via IMDS
 
 ```bash
-INSTANCE_ID=$(aws ec2 describe-instances --profile research \
-  --filters "Name=tag:eks:cluster-name,Values=rsac-demo" \
-  --query 'Reservations[0].Instances[0].InstanceId' --output text)
+INSTANCE_ID=$(kubectl get nodes -o jsonpath='{range .items[*]}{.spec.providerID}{"\n"}{end}' | sed 's#.*/##')
 
 aws ec2 describe-instances --profile research --instance-ids \
   $INSTANCE_ID --query 'Reservations[0].Instances[0].MetadataOptions' --output table
