@@ -44,7 +44,7 @@ public class Exploit {
     }
 }
 JAVA
-cd /opt/exploits && javac -source 1.8 -target 1.8 Exploit.java
+cd /opt/exploits && javac -source 1.8 -target 1.8 Exploit.java -nowarn
 ```
 
 ```bash
