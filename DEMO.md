@@ -168,11 +168,6 @@ aws sts get-caller-identity
 ```
 
 ```bash
-curl -s -H "X-aws-ec2-metadata-token: $IMDS_TOKEN" \
-  http://169.254.169.254/latest/user-data
-```
-
-```bash
 TOKEN=$(aws eks get-token --cluster-name rsac-demo --output json \
   | python3 -c "import sys,json; print(json.load(sys.stdin)['status']['token'])")
 ```
